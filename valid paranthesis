@@ -1,0 +1,13 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack=[]
+        for p in s:
+            if stack and stack[-1]=="(" and p==")":
+                stack.pop()
+            elif stack and stack[-1]=="{" and p=="}":
+                stack.pop()
+            elif stack and stack[-1]=="[" and p=="]":
+                stack.pop()
+            else:
+                stack.append(p)
+        return len(stack)==0
